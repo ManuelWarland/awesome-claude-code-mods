@@ -1,4 +1,5 @@
 # Repos the GitHub code search has not indexed yet. One owner/repo per line.
+3dnow/claude-mods
 halluton/Mindful-Claude
 danzerzine/claude-council
 anthropics/claude-code
@@ -8,6 +9,7 @@ Anerco/effort-cycle-mod
 moduvoice/claude-code-ko-ui
 OneWave-AI/claude-code-mods
 yash-gadodia/claude-mods
+plaxagoras/clawd-tales
 kongyo2/context-view
 BatuhanCakmakk/wavy-usage
 jarrodwatts/intermission
@@ -15,6 +17,7 @@ hellosverre/claude-skins
 augiefra/claude-mods
 nuromirzak/nibbl
 augbastos/afkswitch
+SARTHAK2511/claude-combo
 ljmerza/prompt-spellcheck
 scasella/claude-flightdeck
 pawandeepdhall/claude-mods
@@ -24,6 +27,7 @@ xuanji86/claude-statuspane
 xuanji86/claude-agentpane
 shimo4228/harness-scope
 helenkwok/gsd-status-mod
+gerricchaplin/pr-pulse
 xuanji86/claude-mdview
 adamholter/claude-subway-surfers
 agentic-workbench/agent-quick-menu
@@ -40,3 +44,7 @@ muellerei/enable-todo-tools
 Sumit189/explain-claude-mod
 vicmpen/mokkan
 ManuelWarland/claude-codex-pane
+chrisluo5311/Pixel-Play
+samox73/claude-code-latex
+MarcoCarnevali/claude-code-mods
+joshuatonga/mini-claude-mods

@@ -9,7 +9,7 @@ A daily scan searches GitHub code for repositories that mention `CLAUDE_CODE_ENA
 ## Open a pull request
 
 1. Add your `owner/repo` to `data/seeds.txt`, one per line.
-   If you moved a mod to a new repo and the table lists both, add the pair to `data/duplicates.txt` so the old copy stops counting.
+   If you renamed a repository on GitHub, nothing is needed: the scan reads the current name and counts each plugin once, under that name. If you moved a mod to a different repository and the table lists both, add the pair to `data/duplicates.txt` so the old copy stops counting.
    A repo that repackages other authors' mods as a catalogue goes in `data/catalogs.txt`: it is named once with its count rather than listed per copy.
    If the scan files an installable mod as test material only because of its folder name (such as `bench` or `probe`), add its id to `data/fixture-exceptions.txt`.
 
@@ -78,6 +78,10 @@ The landing page is generated from `data/mods.json`. Edit `tools/site.mjs`, `too
 Each scheduled scan runs this renderer and includes the updated README count, catalogue, landing page and public JSON in the same automated scan pull request. Merging that pull request publishes the collection through GitHub Pages. No separate website edit or pull request is needed for new scanned mods.
 
 Approved seed additions use the separate automatic publication path above. Broader discovery, updates to existing mods and retirement proposals still require review of their generated PRs.
+
+The nightly scan reuses its completed results when main advances during publication. It preserves repository records changed on main since the scan started, including additions and retirements, then regenerates the catalogue and website using current main. If a concurrent record was validated with a different Claude Code version, it revalidates that record at its published source commit using the scan's version. Validation, footprint and marketplace evidence are updated without changing its classification or pulling in newer upstream commits. Those results are cached across publication retries. New seeds that were not scanned stay candidates for seed publication. Up to eight publication attempts reuse the full scan instead of repeating it.
+
+Main pushes and completed seed-publication runs also refresh an open nightly scan PR without a full rescan. Nightly scans, refreshes and weekly retirement runs share a queue with room for up to 100 pending jobs or runs, so a new refresh does not replace a waiting scan. Each reads current main when it starts; redundant refreshes exit before installing dependencies. Contributor checks keep their separate cancellation groups. The scan PR still needs your review and merge. Changes to scanner inputs or classification rules require a fresh scan, as do conflicting duplicate decisions. Missing pinned source or incomplete revalidation stops publication. Weekly retirement proposals still need their separate review.
 
 Search, filtering and sorting run in the browser; the full collection remains readable without JavaScript. Search stays above the results while browsing. The page follows the system's light or dark appearance through `prefers-color-scheme`.
 
